@@ -15,3 +15,7 @@ php artisan db:monitor
 php artisan migrate:status
 
 php artisan migrate
+
+php artisan migrate:rollback --step=1
+
+php artisan migrate:rollback
