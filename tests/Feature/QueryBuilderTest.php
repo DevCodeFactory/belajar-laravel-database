@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Log;
 use Tests\TestCase;
 use function Laravel\Prompts\table;
 use function PHPUnit\Framework\assertCount;
+use function Symfony\Component\String\s;
 
 class QueryBuilderTest extends TestCase
 {
@@ -391,6 +392,20 @@ class QueryBuilderTest extends TestCase
             ->get();
 
         self::assertCount(0, $collection);
+    }
+
+    public function testLocking()
+    {
+        $this->insertProducts();
+
+        DB::transaction(function () {
+            $collection = DB::table('products')
+                ->where('id', '=', '1')
+                ->lockForUpdate()
+                ->get();
+
+            self::assertCount(1, $collection);
+        });
     }
 
 }
