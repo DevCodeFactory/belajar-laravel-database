@@ -9,3 +9,9 @@ php artisan db:show
 
 # Monitor
 php artisan db:monitor
+
+# DATABASE MIGRATION
+
+php artisan migrate:status
+
+php artisan migrate
