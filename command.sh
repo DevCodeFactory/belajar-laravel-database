@@ -19,3 +19,8 @@ php artisan migrate
 php artisan migrate:rollback --step=1
 
 php artisan migrate:rollback
+
+# DATABASE SEEDING
+php artisan make:seeder CategorySeeder
+
+php artisan db:seed --class=CategorySeeder

@@ -41,3 +41,5 @@ drop table counters;
 show tables;
 
 describe counters;
+
+select * from categories;
